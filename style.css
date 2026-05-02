@@ -18,11 +18,13 @@
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
+  background-color: #050505;
 }
 
 body {
   margin: 0;
   font-family: 'Exo 2', 'Segoe UI', sans-serif;
+  background-color: #050505;
   background:
     radial-gradient(circle at 8% 12%, rgba(194, 13, 22, 0.18), transparent 45%),
     radial-gradient(circle at 88% 88%, rgba(141, 13, 19, 0.18), transparent 40%),
