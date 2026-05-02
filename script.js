@@ -52,6 +52,73 @@ if (menuToggle && mobileNav) {
   });
 }
 
+function shouldHandleAnchorClick(event, href) {
+  if (!href || href.length < 2 || href.charAt(0) !== '#') {
+    return false;
+  }
+
+  if (event.defaultPrevented || event.button !== 0) {
+    return false;
+  }
+
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+    return false;
+  }
+
+  return true;
+}
+
+function cleanHashFromUrl() {
+  if (!window.location.hash || !window.history || !window.history.replaceState) {
+    return;
+  }
+
+  window.history.replaceState(null, '', window.location.pathname + window.location.search);
+}
+
+function scrollToAnchorId(id, behavior) {
+  const target = document.getElementById(id);
+  if (!target) {
+    return;
+  }
+
+  target.scrollIntoView({ behavior, block: 'start' });
+  cleanHashFromUrl();
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener('click', (event) => {
+    const href = anchor.getAttribute('href');
+    if (!shouldHandleAnchorClick(event, href)) {
+      return;
+    }
+
+    const id = href.slice(1);
+    if (!id) {
+      return;
+    }
+
+    if (!document.getElementById(id)) {
+      return;
+    }
+
+    event.preventDefault();
+    scrollToAnchorId(id, 'smooth');
+  });
+});
+
+if (window.location.hash.length > 1) {
+  const hashId = decodeURIComponent(window.location.hash.slice(1));
+  const hashTarget = document.getElementById(hashId);
+
+  if (hashTarget) {
+    window.requestAnimationFrame(() => {
+      hashTarget.scrollIntoView({ behavior: 'auto', block: 'start' });
+      cleanHashFromUrl();
+    });
+  }
+}
+
 const revealItems = document.querySelectorAll('.section-reveal');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
