@@ -1,0 +1,4 @@
+title: Locus Team
+description: Українська локалізація візуальних новел
+plugins:
+  - jekyll-redirect-from
