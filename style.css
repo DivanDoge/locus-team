@@ -61,7 +61,7 @@ main,
 .site-header {
   backdrop-filter: blur(10px);
   background: rgba(5, 5, 5, 0.82);
-  border-bottom: 1px solid var(--line);
+  border-bottom: none;
 }
 
 .header-inner {
@@ -134,7 +134,7 @@ main,
 .menu-toggle {
   width: 44px;
   height: 44px;
-  border: 1px solid var(--line);
+  border: none;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 10px;
   display: none;
@@ -147,7 +147,6 @@ main,
 }
 
 .menu-toggle:hover {
-  border-color: rgba(255, 89, 98, 0.5);
   background: rgba(255, 89, 98, 0.06);
 }
 
@@ -175,7 +174,7 @@ main,
 .mobile-nav {
   overflow: hidden;
   max-height: 0;
-  border-top: 0px solid var(--line);
+  border-top: 0;
   background: rgba(5, 5, 5, 0.97);
   backdrop-filter: blur(16px);
   padding: 0 20px;
@@ -183,13 +182,12 @@ main,
   display: flex;
   flex-direction: column;
   gap: 0;
-  transition: max-height 0.35s ease, padding 0.3s ease, border-top-width 0.3s ease;
+  transition: max-height 0.35s ease, padding 0.3s ease;
 }
 
 .mobile-nav.open {
   max-height: 320px;
   padding: 8px 20px 16px;
-  border-top-width: 1px;
 }
 
 .mobile-nav a {
@@ -197,7 +195,7 @@ main,
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  border-bottom: 1px solid var(--line);
+  border-bottom: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
