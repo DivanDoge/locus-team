@@ -81,7 +81,7 @@ redirect_from:
           <div class="saya-meta-row">
             <div class="saya-meta-item">
               <span class="saya-meta-label">Автор</span>
-              <span class="saya-meta-value">Gen Urobuchi</span>
+              <span class="saya-meta-value">虚淵 玄 (Ґен Уробучі)</span>
             </div>
             <div class="saya-meta-item">
               <span class="saya-meta-label">Видавець</span>
@@ -204,38 +204,99 @@ redirect_from:
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         Для встановлення потрібна оригінальна версія The Song of Saya (Steam або JAST USA). Патч накладається поверх оригіналу.
       </div>
+      <div class="saya-dl-notice saya-dl-notice--danger" role="note" aria-label="Важливий дисклеймер 18+">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+        Дисклеймер: версія з DLC 18+ призначена лише для повнолітніх. Вміст гри може бути відвертим, шокуючим, неприємним і психологічно важким. DLC-архів встановлюється тільки на версію гри з уже встановленим 18+ DLC, інакше гра може зламатися.
+      </div>
       <div class="saya-dl-options">
 
-        <div class="saya-dl-option saya-dl-option--recommended">
+        <article class="saya-dl-option saya-dl-option--recommended saya-dl-option--lbk">
           <div class="saya-dl-option-badge">Рекомендовано</div>
           <div class="saya-dl-option-icon saya-dl-icon-lbk">
             <img src="../img/lbk-icon.png" alt="" aria-hidden="true" width="28" height="28">
           </div>
           <div class="saya-dl-option-body">
             <strong class="saya-dl-name">LBK Launcher</strong>
-            <span class="saya-dl-desc">Автоматичне встановлення та оновлення патча. Найпростіший спосіб.</span>
+            <span class="saya-dl-desc">Автоматичне встановлення та оновлення локалізації. Найпростіший спосіб.</span>
+            <ol class="saya-dl-steps">
+              <li>Завантаж і встанови LBK Launcher.</li>
+              <li>Знайди The Song of Saya у списку ігор.</li>
+              <li>Встанови локалізацію.</li>
+            </ol>
           </div>
           <a href="https://lbklauncher.com/games/the_song_of_saya/locus-team" target="_blank" rel="noopener" class="btn btn-primary saya-dl-btn">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Завантажити
           </a>
-        </div>
+        </article>
 
-        <div class="saya-dl-option">
+        <article class="saya-dl-option saya-dl-option--zip">
           <div class="saya-dl-option-icon">
             <img src="../img/Windows-logo.svg" alt="" aria-hidden="true" width="28" height="28">
           </div>
           <div class="saya-dl-option-body">
-            <strong class="saya-dl-name">Пряме посилання</strong>
-            <span class="saya-dl-desc">Завантажити архів з патчем вручну та встановити за інструкцією.</span>
+            <strong class="saya-dl-name">Архів (без DLC)</strong>
+            <span class="saya-dl-desc">ZIP-архів локалізації для тих, хто хоче встановити файли вручну.</span>
+            <ol class="saya-dl-steps">
+              <li>Завантаж ZIP-архів з локалізацією.</li>
+              <li>Розпакуй архів у кореневу папку гри:<br> .\Steam\steamapps\common\The Song of Saya.</li>
+            </ol>
+            <span class="saya-dl-danger">Рекомендовано зробити резервну копію Saya_Steam.exe перед встановленням.</span>
           </div>
-          <div class="saya-dl-btn">
-            <span class="status wait" style="font-size:0.68rem">Скоро</span>
+          <a href="../mods/The%20Song%20of%20Saya/zero-test-archive.zip" class="btn btn-ghost saya-dl-btn" download>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Завантажити .ZIP
+          </a>
+        </article>
+
+        <article class="saya-dl-option saya-dl-option--dlc">
+          <div class="saya-dl-option-icon">
+            <img src="../img/Windows-logo.svg" alt="" aria-hidden="true" width="28" height="28">
           </div>
-        </div>
+          <div class="saya-dl-option-body">
+            <strong class="saya-dl-name">Архів (18+ DLC)</strong>
+            <span class="saya-dl-desc">Окремий ZIP-архів локалізації для версії гри, де вже встановлено 18+ DLC.</span>
+            <ol class="saya-dl-steps">
+              <li>Завантаж ZIP-архів з локалізацією.</li>
+              <li>Розпакуй архів у кореневу папку гри:<br> .\Steam\steamapps\common\The Song of Saya.</li>
+            </ol>
+            <p class="saya-dl-danger">Увага: Призначено лише для гри зі вже встановленим 18+ DLC.</p>
+            <span class="saya-dl-danger">Рекомендовано зробити резервну копію Saya_Steam.exe перед встановленням.</span>
+          </div>
+          <a href="../mods/The%20Song%20of%20Saya/zero-test-archive-dlc.zip" id="sayaDlcDownloadBtn" class="btn btn-ghost saya-dl-btn" download>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Завантажити .ZIP (18+ DLC)
+          </a>
+        </article>
+
+        <article class="saya-dl-option saya-dl-option--exe">
+          <div class="saya-dl-option-icon">
+            <img src="../img/Windows-logo.svg" alt="" aria-hidden="true" width="28" height="28">
+          </div>
+          <div class="saya-dl-option-body">
+            <strong class="saya-dl-name">Інсталятор</strong>
+            <span class="saya-dl-desc">EXE-інсталятор для швидкого встановлення в кілька кліків.<br>Містить одразу дві версії локалізації (DLC) з авто-вибором при встановленні.</span>
+          </div>
+          <a href="../mods/The%20Song%20of%20Saya/zero-test-installer.exe" class="btn btn-primary saya-dl-btn" download>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Завантажити .EXE
+          </a>
+        </article>
 
       </div>
     </section>
+
+    <div id="sayaAgeModal" class="saya-age-modal" role="dialog" aria-modal="true" aria-labelledby="sayaAgeModalTitle" aria-describedby="sayaAgeModalText" hidden>
+      <div class="saya-age-modal-card">
+        <h3 id="sayaAgeModalTitle">Підтвердження 18+</h3>
+        <p id="sayaAgeModalText">Архів DLC 18+ можна встановлювати тільки на версію гри, де вже є встановлений 18+ DLC. Якщо встановити його на гру без DLC, гра може зламатися.</p>
+        <p class="saya-age-modal-disclaimer">Вміст гри може бути відвертим, шокуючим, неприємним і психологічно важким. Продовжуючи, ти підтверджуєш, що тобі є 18+ років.</p>
+        <div class="saya-age-modal-actions">
+          <button type="button" class="btn btn-primary" id="sayaAgeConfirmBtn">Підтверджую, мені 18+</button>
+          <button type="button" class="btn btn-ghost" id="sayaAgeCancelBtn">Скасувати</button>
+        </div>
+      </div>
+    </div>
 
     <!-- ── FAQ ────────────────────────────────────────────────── -->
     <section class="saya-section section-reveal" id="faq">

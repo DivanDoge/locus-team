@@ -302,3 +302,64 @@ if (heroCanvas) {
     })
     .catch(function () { /* мовчки ігноруємо помилки мережі */ });
 }());
+
+/* ── DLC 18+ Modal Gate ───────────────────────────────────── */
+(function () {
+  var dlcButton = document.getElementById('sayaDlcDownloadBtn');
+  var modal = document.getElementById('sayaAgeModal');
+  var confirmBtn = document.getElementById('sayaAgeConfirmBtn');
+  var cancelBtn = document.getElementById('sayaAgeCancelBtn');
+
+  if (!dlcButton || !modal || !confirmBtn || !cancelBtn) return;
+
+  var downloadUrl = dlcButton.getAttribute('href');
+  var lastFocused = null;
+
+  modal.hidden = true;
+  document.body.style.overflow = '';
+
+  function openModal() {
+    lastFocused = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    confirmBtn.focus();
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus();
+    }
+  }
+
+  dlcButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    openModal();
+  });
+
+  confirmBtn.addEventListener('click', function () {
+    closeModal();
+    if (downloadUrl) {
+      window.location.href = downloadUrl;
+    }
+  });
+
+  cancelBtn.addEventListener('click', function () {
+    closeModal();
+  });
+
+  modal.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (modal.hidden) return;
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+}());
