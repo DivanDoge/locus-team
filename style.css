@@ -31,6 +31,7 @@ body {
     linear-gradient(140deg, var(--bg-0), var(--bg-1) 45%, var(--bg-2));
   color: var(--text);
   overflow-x: hidden;
+  opacity: 1;
 }
 
 .noise {
@@ -774,7 +775,7 @@ main,
   margin: 32px 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 12px;
 }
 
@@ -834,6 +835,7 @@ main,
 .join-icon {
   color: rgba(255, 89, 98, 0.45);
   flex-shrink: 0;
+  margin-right: 70px;
 }
 
 .support {
@@ -971,8 +973,8 @@ main,
 
 .section-reveal {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(18px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
 .section-reveal.visible {
@@ -1069,121 +1071,374 @@ main,
   z-index: 0;
 }
 
-/* Progress */
-.saya-progress-main {
-  display: grid;
-  grid-template-columns: minmax(130px, 190px) 1fr;
-  gap: 22px;
-  align-items: center;
-  padding: 20px;
-  border: 1px solid rgba(255, 89, 98, 0.28);
-  border-radius: 14px;
-  background: linear-gradient(160deg, rgba(194, 13, 22, 0.12), rgba(255, 255, 255, 0.02));
-  margin-bottom: 14px;
+/* Progress dashboard from saya_menu_dashboard.html */
+.saya-dashboard-shell {
+  width: min(100%, 1250px);
+  margin: 0 auto;
 }
 
-.saya-progress-total {
-  font-family: 'Russo One', sans-serif;
-  font-size: clamp(2.3rem, 5vw, 3.8rem);
-  line-height: 1;
-  color: #ff9ca1;
-  text-shadow: 0 0 24px rgba(255, 89, 98, 0.24);
+.saya-dashboard-window {
+  width: 100%;
+  aspect-ratio: 16 / 9.3;
+  border: 1px solid rgba(168, 190, 255, 0.54);
+  border-radius: 16px;
+  box-shadow: 0 22px 58px rgba(62, 78, 142, 0.22);
+  position: relative;
+  overflow: hidden;
+  background: #edf3f8;
 }
 
-.saya-progress-title {
-  margin: 0 0 10px;
-  font-family: 'Russo One', sans-serif;
+
+.saya-dashboard-bg,
+.saya-dashboard-overlay,
+.saya-dashboard-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.saya-dashboard-bg {
+  background: url('img/title_back01.png') center center / cover no-repeat;
+  opacity: 0.98;
+  filter: saturate(108%) contrast(103%);
+}
+
+.saya-dashboard-overlay {
+  background: url('img/title02.png') center center / 112% auto no-repeat;
+  opacity: 0.34;
+}
+
+.saya-dashboard-wash {
+  background: linear-gradient(rgba(244, 248, 255, 0.52), rgba(244, 248, 255, 0.52));
+}
+
+.saya-dashboard-page {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 20px;
+}
+
+.saya-dashboard-hero {
+  text-align: center;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.saya-dashboard-kanji {
+  font-family: 'Noto Serif JP', serif;
+  position: absolute;
+  left: 50%;
+  top: -26px;
+  transform: translateX(-50%);
+  font-size: clamp(86px, 8.8vw, 108px);
+  line-height: 0.9;
+  color: rgba(96, 116, 182, 0.16);
+  margin-bottom: 0;
+  white-space: nowrap;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.saya-dashboard-title {
+  font-size: clamp(44px, 5.2vw, 56px);
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  color: #1f2c5c;
+  line-height: 0.98;
+  text-shadow: 0 2px 14px rgba(73, 92, 171, 0.16);
+  position: relative;
+  z-index: 1;
 }
 
-.saya-progress-track {
-  width: 100%;
-  height: 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  overflow: hidden;
+.saya-dashboard-meta {
+  margin-top: 6px;
+  font-size: 16px;
+  letter-spacing: 0.14em;
+  color: #44538c;
+  position: relative;
+  z-index: 1;
 }
 
-.saya-progress-track > span {
-  display: block;
-  height: 100%;
-  width: var(--value, 0%);
-  background: linear-gradient(90deg, #ff3a44 0%, #ff9d52 100%);
-  box-shadow: 0 0 16px rgba(255, 89, 98, 0.35);
-}
-
-.saya-progress-note {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 0.86rem;
-}
-
-.saya-progress-list {
-  display: grid;
-  gap: 10px;
-}
-
-.saya-progress-item {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 16px 18px;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 10px 14px;
+.saya-dashboard-status {
+  display: inline-flex;
   align-items: center;
-  background: linear-gradient(90deg, rgba(255, 89, 98, 0.08), rgba(255, 255, 255, 0.01));
+  gap: 8px;
+}
+
+.saya-dashboard-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #2aaf63;
+  box-shadow: 0 0 14px rgba(42, 175, 99, 0.58);
+  display: inline-block;
+}
+
+.saya-dashboard-main-card {
+  margin: 0 auto 8px;
+  width: 100%;
+  max-width: 1100px;
+  background: linear-gradient(160deg, rgba(249, 252, 255, 0.54), rgba(232, 240, 255, 0.36));
+  border: 1px solid rgba(170, 196, 255, 0.52);
+  box-shadow:
+    0 10px 24px rgba(48, 64, 126, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.64),
+    inset 0 -1px 0 rgba(145, 170, 235, 0.24);
+  padding: 14px 16px;
   position: relative;
   overflow: hidden;
 }
 
-.saya-progress-item::before {
+.saya-dashboard-main-card::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.04));
+  pointer-events: none;
+}
+
+.saya-dashboard-main-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.saya-dashboard-main-inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+.saya-dashboard-main-pct {
+  font-size: clamp(64px, 6.8vw, 86px);
+  line-height: 1;
+  font-weight: 700;
+  color: #2e9f74;
+  letter-spacing: -0.04em;
+  display: block;
+  font-family: 'Space Mono', monospace;
+}
+
+.saya-dashboard-main-label {
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1f2c5c;
+  margin-bottom: 8px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+}
+
+.saya-dashboard-bar-wrap,
+.saya-dashboard-metric-bar,
+.saya-dashboard-subpoint-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(186, 206, 246, 0.3);
+  border: 1px solid rgba(165, 188, 245, 0.56);
+  box-shadow: inset 0 1px 3px rgba(92, 114, 182, 0.24);
+  overflow: hidden;
+}
+
+.saya-dashboard-bar-fill,
+.saya-dashboard-metric-bar span,
+.saya-dashboard-subpoint-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #9ee8c9 0%, #59c79d 52%, #2f9f77 100%);
+}
+
+.saya-dashboard-metric-bar--done span,
+.saya-dashboard-metric-bar--warn span,
+.saya-dashboard-subpoint-bar--warn span {
+  background: linear-gradient(90deg, #b7dcf3 0%, #7fb7df 52%, #5a89c8 100%);
+}
+
+.saya-dashboard-metric-bar--warn span,
+.saya-dashboard-subpoint-bar--warn span {
+  background: linear-gradient(90deg, #c8e7bf 0%, #9fcf93 52%, #78a96e 100%);
+}
+
+.saya-dashboard-main-meta {
+  margin-top: 6px;
+  font-size: 16px;
+  color: #44538c;
+}
+
+.saya-dashboard-metrics {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.saya-dashboard-metric-row {
+  background: linear-gradient(160deg, rgba(249, 252, 255, 0.5), rgba(232, 240, 255, 0.32));
+  border: 1px solid rgba(170, 196, 255, 0.52);
+  box-shadow:
+    0 8px 18px rgba(48, 64, 126, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto auto;
+  gap: 6px 18px;
+  position: relative;
+}
+
+.saya-dashboard-metric-row::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03));
+  pointer-events: none;
+}
+
+.saya-dashboard-metric-row > * {
+  position: relative;
+  z-index: 1;
+}
+
+.saya-dashboard-metric-row::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 1px;
-  bottom: 1px;
+  top: 0;
+  bottom: 0;
   width: 4px;
-  background: #ff5962;
-  border-radius: 999px;
+  background: rgba(47, 159, 119, 0.82);
 }
 
-.saya-progress-item h3 {
-  margin: 0;
-  text-transform: uppercase;
+.saya-dashboard-metric-row--done::before { background: rgba(90, 137, 200, 0.82); }
+.saya-dashboard-metric-row--warn::before { background: rgba(120, 169, 110, 0.82); }
+
+.saya-dashboard-metric-name {
+  font-size: 22px;
   letter-spacing: 0.08em;
-  font-size: 1rem;
-  font-family: 'Russo One', sans-serif;
-  font-weight: 400;
+  text-transform: uppercase;
+  color: #1f2c5c;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
 }
 
-.saya-progress-numbers {
-  color: var(--muted);
-  font-size: 0.92rem;
+.saya-dashboard-metric-nums {
+  font-size: 19px;
+  color: #44538c;
+  font-style: italic;
+  font-family: 'Space Mono', monospace;
+}
+
+.saya-dashboard-metric-pct {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  font-size: 58px;
+  line-height: 0.9;
+  font-weight: 700;
+  color: #2e9f74;
+  font-family: 'Space Mono', monospace;
+}
+
+.saya-dashboard-metric-pct--blue { color: #5a89c8; }
+.saya-dashboard-metric-pct--red { color: #86a97b; }
+
+.saya-dashboard-metric-bar {
+  grid-column: 1 / 3;
+  height: 10px;
+  background: rgba(186, 206, 246, 0.28);
+  border: 1px solid rgba(165, 188, 245, 0.48);
+  box-shadow: inset 0 1px 2px rgba(90, 110, 175, 0.2);
+  overflow: hidden;
+}
+
+.saya-dashboard-metric-subpoints {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 2px 0 0 8px;
+  border-left: 2px solid rgba(90, 137, 200, 0.34);
+}
+
+.saya-dashboard-subpoint-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.saya-dashboard-subpoint-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.saya-dashboard-subpoint-name {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #1f2c5c;
+  text-transform: uppercase;
+  font-family: 'Space Mono', monospace;
+}
+
+.saya-dashboard-subpoint-nums {
+  font-size: 14px;
+  color: #44538c;
+  letter-spacing: 0.04em;
   white-space: nowrap;
+  font-family: 'Space Mono', monospace;
 }
 
-.saya-progress-value {
-  font-family: 'Russo One', sans-serif;
-  font-size: 1.8rem;
-  line-height: 1;
-  color: #ff9ca1;
-  min-width: 58px;
-  text-align: right;
+.saya-dashboard-subpoint-bar {
+  height: 6px;
+  background: rgba(186, 206, 246, 0.28);
+  border: 1px solid rgba(165, 188, 245, 0.48);
+  box-shadow: inset 0 1px 2px rgba(90, 110, 175, 0.2);
+  overflow: hidden;
 }
 
-.saya-progress-item-track {
-  grid-column: 1 / 4;
+.saya-dashboard-footer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 6px auto 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: #44538c;
 }
 
-.saya-progress-item-track .saya-progress-track {
-  height: 8px;
+.saya-dashboard-footer-handle {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
 }
 
-.saya-progress-item--low .saya-progress-track > span {
-  background: linear-gradient(90deg, #a3262d 0%, #ff5962 100%);
+@media (max-width: 980px) {
+  .saya-dashboard-title { font-size: 42px; }
+  .saya-dashboard-kanji { font-size: 86px; top: -16px; }
+  .saya-dashboard-main-pct { font-size: 78px; }
+  .saya-dashboard-metric-name { font-size: 18px; }
+  .saya-dashboard-metric-nums { font-size: 15px; }
+  .saya-dashboard-metric-pct { font-size: 46px; }
+  .saya-dashboard-subpoint-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .saya-dashboard-subpoint-name,
+  .saya-dashboard-subpoint-nums { font-size: 12px; }
+  .saya-dashboard-footer { font-size: 12px; }
 }
 
 /* Screenshots */
@@ -1451,6 +1706,13 @@ main,
   color: #ff8b91;
   background: rgba(194, 13, 22, 0.14);
   border-color: rgba(255, 89, 98, 0.35);
+}
+
+.saya-dl-option-icon--zip {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
 .saya-dl-icon-lbk {

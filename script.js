@@ -120,21 +120,13 @@ if (window.location.hash.length > 1) {
 }
 
 const revealItems = document.querySelectorAll('.section-reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.18,
-  rootMargin: '0px 0px -10% 0px'
-});
 
-revealItems.forEach((item, index) => {
-  item.style.transitionDelay = `${Math.min(index * 0.08, 0.36)}s`;
-  revealObserver.observe(item);
+window.addEventListener('load', () => {
+  requestAnimationFrame(() => {
+    revealItems.forEach((item) => {
+      item.classList.add('visible');
+    });
+  });
 });
 
 const heroCanvas = document.getElementById('heroCanvas');

@@ -27,47 +27,10 @@ redirect_from:
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body id="top">
   <div class="noise" aria-hidden="true"></div>
 
-  <header class="site-header" id="top">
-    <div class="header-inner">
-      <a href="../#top" class="brand" aria-label="Locus Team">
-        <img src="../img/Locus-logo.png" alt="Locus Team" class="brand-logo">
-        <div class="brand-text-wrap">
-          <strong class="brand-title">LOCUS TEAM</strong>
-          <span class="brand-sub">Українська локалізація візуальних новел</span>
-        </div>
-      </a>
-
-      <nav class="site-nav" aria-label="Основна навігація">
-        <a href="../#top">Головна</a>
-        <a href="../#projects">Проєкти</a>
-        <a href="../#about">Про команду</a>
-        <a href="../#support">Підтримка</a>
-        <a href="https://j4s-ukr.github.io" target="_blank" rel="noopener" class="nav-j4s-link">J4S Team
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-        </a>
-        <a href="https://t.me/the_song_of_saya_ukr" target="_blank" rel="noopener" class="nav-tg-link" aria-label="Telegram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.367l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.958.192z"/></svg>
-        </a>
-      </nav>
-
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Відкрити меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-
-    <nav id="mobileNav" class="mobile-nav" aria-label="Мобільна навігація">
-      <a href="../#top">Головна</a>
-      <a href="../#projects">Проєкти</a>
-      <a href="../#about">Про команду</a>
-      <a href="../#support">Підтримка</a>
-      <a href="https://j4s-ukr.github.io" target="_blank" rel="noopener">J4S Team ↗</a>
-    </nav>
-  </header>
+  {% include site-header.html %}
 
   <main>
 
@@ -146,47 +109,91 @@ redirect_from:
 
     <!-- ── Progress ──────────────────────────────────────────── -->
     <section class="saya-section section-reveal" id="progress">
-      <div class="section-head">
-        <span class="kicker">Прогрес</span>
-        <h2>Прогрес локалізації</h2>
-      </div>
+      <div class="saya-dashboard-shell">
+        <div class="saya-dashboard-window">
+          <div class="saya-dashboard-bg" aria-hidden="true"></div>
+          <div class="saya-dashboard-wash" aria-hidden="true"></div>
+          <div class="saya-dashboard-overlay" aria-hidden="true"></div>
 
-      <article class="saya-progress-main">
-        <div class="saya-progress-total">100%</div>
-        <div class="saya-progress-main-body">
-          <h3 class="saya-progress-title">Прогрес перекладу</h3>
-          <div class="saya-progress-track" style="--value: 100%"><span></span></div>
-          <p class="saya-progress-note">Статус: локалізація завершена</p>
+          <div class="saya-dashboard-page">
+            <div class="saya-dashboard-hero">
+              <div class="saya-dashboard-kanji">沙耶の唄</div>
+              <div class="saya-dashboard-title">The Song of Saya</div>
+              <div class="saya-dashboard-meta">Прогрес локалізації · <span class="saya-dashboard-status"></span>Завершено</span></div>
+            </div>
+
+            <div class="saya-dashboard-main-card">
+              <div class="saya-dashboard-main-inner">
+                <div class="saya-dashboard-main-pct">100%</div>
+                <div class="saya-dashboard-main-right">
+                  <div class="saya-dashboard-main-label">прогрес перекладу</div>
+                  <div class="saya-dashboard-bar-wrap">
+                    <div class="saya-dashboard-bar-fill" style="width: 100%"></div>
+                  </div>
+                  <div class="saya-dashboard-main-meta">Активний робочий процес: тестування та редагування</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="saya-dashboard-metrics">
+              <div class="saya-dashboard-metric-row">
+                <div class="saya-dashboard-metric-name">Текст</div>
+                <div class="saya-dashboard-metric-nums">57 701 / 57 701 слів</div>
+                <div class="saya-dashboard-metric-pct">100%</div>
+                <div class="saya-dashboard-metric-bar" style="grid-column: 1 / -1">
+                  <span style="width: 100%"></span>
+                </div>
+
+                <div class="saya-dashboard-metric-subpoints">
+                  <div class="saya-dashboard-subpoint-row">
+                    <div class="saya-dashboard-subpoint-head">
+                      <div class="saya-dashboard-subpoint-name">DLC · Переклад</div>
+                      <div class="saya-dashboard-subpoint-nums">3021 / 3021 слів · 100%</div>
+                    </div>
+                    <div class="saya-dashboard-subpoint-bar">
+                      <span style="width: 100%"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="saya-dashboard-metric-row saya-dashboard-metric-row--done">
+                <div class="saya-dashboard-metric-name">Текстури та UI</div>
+                <div class="saya-dashboard-metric-nums">283 / 283 файлів</div>
+                <div class="saya-dashboard-metric-pct saya-dashboard-metric-pct--blue">100%</div>
+                <div class="saya-dashboard-metric-bar saya-dashboard-metric-bar--done" style="grid-column: 1 / -1">
+                  <span style="width: 100%"></span>
+                </div>
+              </div>
+
+              <div class="saya-dashboard-metric-row saya-dashboard-metric-row--warn">
+                <div class="saya-dashboard-metric-name">Вичитування та редактура</div>
+                <div class="saya-dashboard-metric-nums">35 / 36 сценаріїв</div>
+                <div class="saya-dashboard-metric-pct saya-dashboard-metric-pct--red">100%</div>
+                <div class="saya-dashboard-metric-bar saya-dashboard-metric-bar--warn" style="grid-column: 1 / -1">
+                  <span style="width: 100%"></span>
+                </div>
+
+                <div class="saya-dashboard-metric-subpoints">
+                  <div class="saya-dashboard-subpoint-row">
+                    <div class="saya-dashboard-subpoint-head">
+                      <div class="saya-dashboard-subpoint-name">DLC · Вичитування</div>
+                      <div class="saya-dashboard-subpoint-nums">7 / 7 сценаріїв · 100%</div>
+                    </div>
+                    <div class="saya-dashboard-subpoint-bar saya-dashboard-subpoint-bar--warn">
+                      <span style="width: 100%"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="saya-dashboard-footer">
+              <span>Оновлено 01.09.2026</span>
+              <span class="saya-dashboard-footer-handle">@LOCUS_TEAM</span>
+            </div>
+          </div>
         </div>
-      </article>
-
-      <div class="saya-progress-list">
-        <article class="saya-progress-item">
-          <h3>Текст</h3>
-          <div class="saya-progress-numbers">57 701 / 57 701 слів</div>
-          <div class="saya-progress-value">100%</div>
-          <div class="saya-progress-item-track">
-            <div class="saya-progress-track" style="--value: 100%"><span></span></div>
-          </div>
-        </article>
-
-        <article class="saya-progress-item">
-          <h3>Текстури та UI</h3>
-          <div class="saya-progress-numbers">283 / 283 файлів</div>
-          <div class="saya-progress-value">100%</div>
-          <div class="saya-progress-item-track">
-            <div class="saya-progress-track" style="--value: 100%"><span></span></div>
-          </div>
-        </article>
-
-        <article class="saya-progress-item saya-progress-item--low">
-          <h3>Вичитування та редактура</h3>
-          <div class="saya-progress-numbers">36 / 36 сценаріїв</div>
-          <div class="saya-progress-value">100%</div>
-          <div class="saya-progress-item-track">
-            <div class="saya-progress-track" style="--value: 100%"><span></span></div>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -206,7 +213,7 @@ redirect_from:
       </div>
       <div class="saya-dl-notice saya-dl-notice--danger" role="note" aria-label="Важливий дисклеймер 18+">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
-        Дисклеймер: версія з DLC 18+ призначена лише для повнолітніх. Вміст гри може бути відвертим, шокуючим, неприємним і психологічно важким. DLC-архів встановлюється тільки на версію гри з уже встановленим 18+ DLC, інакше гра може зламатися.
+        Дисклеймер: версія з DLC 18+ призначена лише для повнолітніх. Вміст гри може бути відвертим, шокуючим, неприємним і психологічно важким. DLC-архів встановлюється тільки на версію гри з уже встановленим 18+ DLC, інакше гра зламається.
       </div>
       <div class="saya-dl-options">
 
@@ -231,8 +238,11 @@ redirect_from:
         </article>
 
         <article class="saya-dl-option saya-dl-option--zip">
-          <div class="saya-dl-option-icon">
-            <img src="../img/Windows-logo.svg" alt="" aria-hidden="true" width="28" height="28">
+          <div class="saya-dl-option-icon saya-dl-option-icon--zip" aria-label="ZIP архів" title="ZIP архів">
+            <svg width="28" height="28" viewBox="0 0 512 512" aria-hidden="true">
+              <path d="M378.409,0H208.294h-13.176l-9.314,9.314L57.016,138.102l-9.314,9.314v13.176v265.514c0,47.36,38.528,85.895,85.895,85.895h244.811c47.36,0,85.889-38.535,85.889-85.895V85.896C464.298,38.528,425.769,0,378.409,0z M432.493,426.105c0,29.877-24.214,54.091-54.084,54.091H133.598c-29.877,0-54.091-24.214-54.091-54.091V160.591h83.717c24.885,0,45.07-20.178,45.07-45.07V31.804h170.115c29.87,0,54.084,24.214,54.084,54.092V426.105z" fill="#ffffff"/>
+              <text x="257" y="355" text-anchor="middle" font-size="164" font-weight="700" font-family="Arial, Helvetica, sans-serif" fill="#ffffff" letter-spacing="1">ZIP</text>
+            </svg>
           </div>
           <div class="saya-dl-option-body">
             <strong class="saya-dl-name">Архів (без DLC)</strong>
@@ -250,8 +260,11 @@ redirect_from:
         </article>
 
         <article class="saya-dl-option saya-dl-option--dlc">
-          <div class="saya-dl-option-icon">
-            <img src="../img/Windows-logo.svg" alt="" aria-hidden="true" width="28" height="28">
+          <div class="saya-dl-option-icon saya-dl-option-icon--zip" aria-label="ZIP архів DLC" title="ZIP архів DLC">
+            <svg width="28" height="28" viewBox="0 0 512 512" aria-hidden="true">
+              <path d="M378.409,0H208.294h-13.176l-9.314,9.314L57.016,138.102l-9.314,9.314v13.176v265.514c0,47.36,38.528,85.895,85.895,85.895h244.811c47.36,0,85.889-38.535,85.889-85.895V85.896C464.298,38.528,425.769,0,378.409,0z M432.493,426.105c0,29.877-24.214,54.091-54.084,54.091H133.598c-29.877,0-54.091-24.214-54.091-54.091V160.591h83.717c24.885,0,45.07-20.178,45.07-45.07V31.804h170.115c29.87,0,54.084,24.214,54.084,54.092V426.105z" fill="#ffffff"/>
+              <text x="257" y="355" text-anchor="middle" font-size="164" font-weight="700" font-family="Arial, Helvetica, sans-serif" fill="#ffffff" letter-spacing="1">ZIP</text>
+            </svg>
           </div>
           <div class="saya-dl-option-body">
             <strong class="saya-dl-name">Архів (18+ DLC)</strong>
@@ -266,20 +279,6 @@ redirect_from:
           <a href="../mods/The%20Song%20of%20Saya/zero-test-archive-dlc.zip" id="sayaDlcDownloadBtn" class="btn btn-ghost saya-dl-btn" download>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Завантажити .ZIP (18+ DLC)
-          </a>
-        </article>
-
-        <article class="saya-dl-option saya-dl-option--exe">
-          <div class="saya-dl-option-icon">
-            <img src="../img/Windows-logo.svg" alt="" aria-hidden="true" width="28" height="28">
-          </div>
-          <div class="saya-dl-option-body">
-            <strong class="saya-dl-name">Інсталятор</strong>
-            <span class="saya-dl-desc">EXE-інсталятор для швидкого встановлення в кілька кліків.<br>Містить одразу дві версії локалізації (DLC) з авто-вибором при встановленні.</span>
-          </div>
-          <a href="../mods/The%20Song%20of%20Saya/zero-test-installer.exe" class="btn btn-primary saya-dl-btn" download>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Завантажити .EXE
           </a>
         </article>
 
@@ -368,21 +367,7 @@ redirect_from:
 
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>LOCUS TEAM &mdash; українська локалізація візуальних новел</p>
-      <div class="footer-j4s">
-        <span>Частина спільноти</span>
-        <a href="https://j4s-ukr.github.io" target="_blank" rel="noopener" class="footer-j4s-link">
-          J4S Team
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-        </a>
-      </div>
-      <div class="footer-socials">
-      </div>
-      <p class="footer-copy">&copy; 2026 Locus Team. Всі права захищені.</p>
-    </div>
-  </footer>
+  {% include site-footer.html %}
 
   <!-- Lightbox -->
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Перегляд скриншоту" hidden>
