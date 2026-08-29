@@ -1,0 +1,21 @@
+{% assign support_text = include.text | default: 'Донати спрямовані на інструменти, тестування і технічну підтримку релізів. Кожна гривня прискорює вихід наступних локалізацій.' %}
+{% assign support_title = include.title | default: 'Допоможи команді тримати темп' %}
+{% assign support_button = include.button | default: 'Підтримати зараз' %}
+{% assign support_link = include.link | default: 'https://send.monobank.ua/jar/6t5ags4KpB' %}
+{% assign support_image = include.image | default: '/img/locus-mono.png' %}
+{% assign support_alt = include.alt | default: 'Підтримка Locus Team' %}
+{% assign support_aria = include.aria | default: 'Відкрити банку Monobank' %}
+
+<section id="support" class="support section-reveal">
+  <div class="support-media">
+    <a href="{{ support_link }}" target="_blank" rel="noopener noreferrer" aria-label="{{ support_aria }}" class="support-image-link">
+      <img src="{{ support_image | relative_url }}" alt="{{ support_alt }}" class="support-image">
+    </a>
+  </div>
+  <div class="support-copy">
+    <span class="kicker">Підтримка</span>
+    <h2>{{ support_title }}</h2>
+    <p>{{ support_text }}</p>
+    <a href="{{ support_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">{{ support_button }}</a>
+  </div>
+</section>

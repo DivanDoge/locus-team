@@ -842,6 +842,16 @@ main,
   padding-top: 30px;
 }
 
+.support-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.support-copy .btn {
+  margin-top: 12px;
+}
+
 .support-media {
   border-radius: 16px;
   overflow: hidden;
