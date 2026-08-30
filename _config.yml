@@ -1,4 +1,6 @@
 title: Locus Team
 description: Українська локалізація візуальних новел
+url: "https://locus-team.com"
+lang: uk
 plugins:
   - jekyll-redirect-from
