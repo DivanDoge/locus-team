@@ -1,4 +1,5 @@
 :root {
+  color-scheme: dark;
   --bg-0: #050505;
   --bg-1: #0b0b0b;
   --bg-2: #131010;
@@ -18,15 +19,15 @@
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
-  background-color: transparent;
+  background-color: #160708;
   min-height: 100%;
 }
 
 body {
   margin: 0;
-  min-height: 100dvh;
+  min-height: 100lvh;
   font-family: 'Exo 2', 'Segoe UI', sans-serif;
-  background-color: #050505;
+  background-color: #160708;
   background:
     radial-gradient(circle at 8% 12%, rgba(194, 13, 22, 0.18), transparent 45%),
     radial-gradient(circle at 88% 88%, rgba(141, 13, 19, 0.18), transparent 40%),
@@ -240,6 +241,7 @@ main,
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  min-height: 100lvh;
   max-width: 100%;
   padding: 0;
   overflow: hidden;
