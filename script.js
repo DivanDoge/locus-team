@@ -280,22 +280,9 @@ if (heroCanvas) {
   var content = document.getElementById('sayaDownloadContent');
   if (!gate || !content) return;
 
-  // =========================================================================
-  // ⚙️ НАЛАШТУВАННЯ ЧАСУ РЕЛІЗУ ТА ТЕСТУВАННЯ
-  //
-  // Змінна `RELEASE_DATE` вказує дату та час релізу:
-  //   1 вересня 2026 00:00:00 (за київським часом UTC+3 / EEST).
-  //
-  // 🧪 ТЕСТУВАННЯ ЗАКІНЧЕННЯ ТАЙМЕРА:
-  //   Щоб перевірити, як з'являються посилання після завершення відліку:
-  //   1) Замініть значення RELEASE_DATE нижче на минулу дату, наприклад:
-  //      var RELEASE_DATE = new Date('2020-01-01T00:00:00');
-  //   2) Або поставте тест на +10 секунд від поточного часу:
-  //      var RELEASE_DATE = new Date(Date.now() + 10000);
-  // =========================================================================
   var RELEASE_DATE = new Date('2026-09-01T00:00:00+03:00');
 
-  var timeOffset = 0; // Різниця між точним інтернет-часом і системним годинником клієнта
+  var timeOffset = 0;
 
   var daysEl = document.getElementById('sayaReleaseDays');
   var hoursEl = document.getElementById('sayaReleaseHours');
