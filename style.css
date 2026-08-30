@@ -1649,6 +1649,254 @@ main,
   font-weight: 600;
 }
 
+/* Release Countdown Gate */
+.saya-release-gate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+  padding: 44px 32px 36px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  margin-top: 20px;
+  overflow: hidden;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.saya-release-gate::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 200px;
+  background: radial-gradient(ellipse at center, rgba(194, 13, 22, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.saya-release-gate__kanji {
+  position: absolute;
+  top: -15px;
+  right: 4%;
+  font-family: 'Russo One', sans-serif;
+  font-size: 110px;
+  color: rgba(255, 255, 255, 0.02);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+
+.saya-release-gate.fade-out {
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+}
+
+.saya-release-gate[hidden] {
+  display: none !important;
+}
+
+#sayaDownloadContent {
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#sayaDownloadContent.fade-in-init {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+#sayaDownloadContent[hidden] {
+  display: none !important;
+}
+
+.saya-release-gate__header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 1;
+}
+
+.saya-release-gate__title {
+  font-family: 'Russo One', 'Exo 2', sans-serif;
+  font-size: clamp(1.4rem, 3.8vw, 2.1rem);
+  color: var(--text);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.saya-release-gate__subtitle {
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+.saya-release-gate__countdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 1;
+  width: 100%;
+  max-width: 580px;
+}
+
+.saya-release-gate__card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+.saya-release-gate__card:hover {
+  border-color: rgba(255, 89, 98, 0.35);
+  background: rgba(255, 89, 98, 0.04);
+  transform: translateY(-2px);
+}
+
+.saya-release-gate__number {
+  font-family: 'Russo One', 'Exo 2', sans-serif;
+  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.saya-release-gate__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.saya-release-gate__divider {
+  font-family: 'Russo One', sans-serif;
+  font-size: 2rem;
+  color: var(--red-main);
+  opacity: 0.5;
+  margin-top: -22px;
+  user-select: none;
+}
+
+.saya-release-gate__footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  font-size: 0.88rem;
+  color: var(--muted);
+  z-index: 1;
+}
+
+.saya-release-gate__footer svg {
+  color: var(--red-main);
+  flex-shrink: 0;
+}
+
+.saya-release-gate__footer a {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.saya-release-gate__footer a:hover {
+  color: var(--red-main);
+}
+
+@media (max-width: 580px) {
+  .saya-release-gate {
+    padding: 30px 18px 24px;
+    gap: 20px;
+  }
+
+  .saya-release-gate__kanji {
+    font-size: 70px;
+    top: -5px;
+  }
+
+  .saya-release-gate__countdown {
+    gap: 8px;
+  }
+
+  .saya-release-gate__divider {
+    display: none;
+  }
+
+  .saya-release-gate__card {
+    padding: 14px 8px;
+  }
+
+  .saya-release-gate__number {
+    font-size: 1.7rem;
+  }
+
+  .saya-release-gate__footer {
+    font-size: 0.82rem;
+    padding: 8px 14px;
+  }
+}
+
+.saya-release-gate__footer a {
+  color: #ff8b91;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.saya-release-gate__footer a:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 580px) {
+  .saya-release-gate {
+    padding: 24px 16px;
+    gap: 18px;
+  }
+
+  .saya-release-gate__countdown {
+    gap: 6px;
+  }
+
+  .saya-release-gate__divider {
+    display: none;
+  }
+
+  .saya-release-gate__card {
+    padding: 12px 6px;
+  }
+
+  .saya-release-gate__number {
+    font-size: 1.6rem;
+  }
+}
+
 .saya-dl-options {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

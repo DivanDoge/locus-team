@@ -65,7 +65,7 @@ redirect_from:
               Завантажити
             </a>
             <a href="#screenshots" class="btn btn-ghost btn-screenshots">Скриншоти</a>
-            <a href="https://t.me/the_song_of_saya_ukr" target="_blank" rel="noopener" class="btn btn-ghost">
+            <a href="https://t.me/locus_team" target="_blank" rel="noopener" class="btn btn-ghost">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.367l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.958.192z"/></svg>
               Слідкувати
             </a>
@@ -207,89 +207,127 @@ redirect_from:
           Завантажено <strong id="sayaDlNum">—</strong> разів
         </p>
       </div>
-      <div class="saya-dl-notice">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Для встановлення потрібна оригінальна версія The Song of Saya (Steam або JAST USA). Патч накладається поверх оригіналу.
+      <div id="sayaReleaseGate" class="saya-release-gate" aria-live="polite">
+        <div class="saya-release-gate__kanji" aria-hidden="true">沙耶の唄</div>
+
+        <div class="saya-release-gate__header">
+          <h3 class="saya-release-gate__title">Реліз локалізації The Song of Saya</h3>
+          <p class="saya-release-gate__subtitle">Стане доступна до завантаження 1 вересня!</p>
+        </div>
+
+        <div class="saya-release-gate__countdown" id="sayaReleaseCountdown">
+          <div class="saya-release-gate__card">
+            <div class="saya-release-gate__number" id="sayaReleaseDays">--</div>
+            <div class="saya-release-gate__label">Днів</div>
+          </div>
+          <div class="saya-release-gate__divider" aria-hidden="true">:</div>
+          <div class="saya-release-gate__card">
+            <div class="saya-release-gate__number" id="sayaReleaseHours">--</div>
+            <div class="saya-release-gate__label">Годин</div>
+          </div>
+          <div class="saya-release-gate__divider" aria-hidden="true">:</div>
+          <div class="saya-release-gate__card">
+            <div class="saya-release-gate__number" id="sayaReleaseMinutes">--</div>
+            <div class="saya-release-gate__label">Хвилин</div>
+          </div>
+          <div class="saya-release-gate__divider" aria-hidden="true">:</div>
+          <div class="saya-release-gate__card">
+            <div class="saya-release-gate__number" id="sayaReleaseSeconds">--</div>
+            <div class="saya-release-gate__label">Секунд</div>
+          </div>
+        </div>
+
+        <div class="saya-release-gate__footer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.367l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.958.192z"/></svg>
+          <span>Анонси та оновлення у <a href="https://t.me/locus_team" target="_blank" rel="noopener">Telegram-каналі</a></span>
+        </div>
       </div>
-      <div class="saya-dl-notice saya-dl-notice--danger" role="note" aria-label="Важливий дисклеймер 18+">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
-        Дисклеймер: версія з DLC 18+ призначена лише для повнолітніх. Вміст гри може бути відвертим, шокуючим, неприємним і психологічно важким. DLC-архів встановлюється тільки на версію гри з уже встановленим 18+ DLC, інакше гра зламається.
-      </div>
-      <div class="saya-dl-options">
 
-        <article class="saya-dl-option saya-dl-option--recommended saya-dl-option--lbk">
-          <div class="saya-dl-option-badge">Рекомендовано</div>
-          <div class="saya-dl-option-icon saya-dl-icon-lbk">
-            <img src="../img/lbk-icon.png" alt="" aria-hidden="true" width="28" height="28">
-          </div>
-          <div class="saya-dl-option-body">
-            <strong class="saya-dl-name">LBK Launcher</strong>
-            <span class="saya-dl-desc">Автоматичне встановлення та оновлення локалізації. Найпростіший спосіб.</span>
-            <ol class="saya-dl-steps">
-              <li>Завантаж і встанови LBK Launcher.</li>
-              <li>Знайди The Song of Saya у списку ігор.</li>
-              <li>Встанови локалізацію.</li>
-            </ol>
-          </div>
-          <a href="https://lbklauncher.com/games/the_song_of_saya/locus-team" target="_blank" rel="noopener" class="btn btn-primary saya-dl-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Завантажити
-          </a>
-        </article>
+      <div id="sayaDownloadContent" hidden>
+        <div class="saya-dl-notice">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Для встановлення потрібна оригінальна версія The Song of Saya (Steam або JAST USA). Патч накладається поверх оригіналу.
+        </div>
+        <div class="saya-dl-notice saya-dl-notice--danger" role="note" aria-label="Важливий дисклеймер 18+">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          Дисклеймер: версія з DLC 18+ призначена лише для повнолітніх. Вміст гри може бути відвертим, шокуючим, неприємним і психологічно важким. DLC-архів встановлюється тільки на версію гри з уже встановленим 18+ DLC, інакше гра зламається.
+        </div>
+        <div class="saya-dl-options">
 
-        <article class="saya-dl-option saya-dl-option--zip">
-          <div class="saya-dl-option-icon saya-dl-option-icon--zip" aria-label="ZIP архів" title="ZIP архів">
-            <svg width="28" height="28" viewBox="0 0 512 512" aria-hidden="true">
-              <path d="M378.409,0H208.294h-13.176l-9.314,9.314L57.016,138.102l-9.314,9.314v13.176v265.514c0,47.36,38.528,85.895,85.895,85.895h244.811c47.36,0,85.889-38.535,85.889-85.895V85.896C464.298,38.528,425.769,0,378.409,0z M432.493,426.105c0,29.877-24.214,54.091-54.084,54.091H133.598c-29.877,0-54.091-24.214-54.091-54.091V160.591h83.717c24.885,0,45.07-20.178,45.07-45.07V31.804h170.115c29.87,0,54.084,24.214,54.084,54.092V426.105z" fill="#ffffff"/>
-              <text x="257" y="355" text-anchor="middle" font-size="164" font-weight="700" font-family="Arial, Helvetica, sans-serif" fill="#ffffff" letter-spacing="1">ZIP</text>
-            </svg>
-          </div>
-          <div class="saya-dl-option-body">
-            <strong class="saya-dl-name">Архів (без DLC)</strong>
-            <span class="saya-dl-desc">ZIP-архів локалізації для тих, хто хоче встановити файли вручну.</span>
-            <ol class="saya-dl-steps">
-              <li>Завантаж ZIP-архів з локалізацією.</li>
-              <li>Розпакуй архів у кореневу папку гри:<br> .\Steam\steamapps\common\The Song of Saya.</li>
-            </ol>
-            <span class="saya-dl-danger">Рекомендовано зробити резервну копію Saya_Steam.exe перед встановленням.</span>
-          </div>
-          <a href="../mods/The%20Song%20of%20Saya/zero-test-archive.zip" class="btn btn-ghost saya-dl-btn" download>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Завантажити .ZIP
-          </a>
-        </article>
+          <article class="saya-dl-option saya-dl-option--recommended saya-dl-option--lbk">
+            <div class="saya-dl-option-badge">Рекомендовано</div>
+            <div class="saya-dl-option-icon saya-dl-icon-lbk">
+              <img src="../img/lbk-icon.png" alt="" aria-hidden="true" width="28" height="28">
+            </div>
+            <div class="saya-dl-option-body">
+              <strong class="saya-dl-name">LBK Launcher</strong>
+              <span class="saya-dl-desc">Автоматичне встановлення та оновлення локалізації. Найпростіший спосіб.</span>
+              <ol class="saya-dl-steps">
+                <li>Завантажте і встановіть LBK Launcher.</li>
+                <li>Знайдіть The Song of Saya у списку ігор.</li>
+                <li>Встановіть локалізацію.</li>
+              </ol>
+            </div>
+            <a href="https://lbklauncher.com/games/the_song_of_saya/locus-team" target="_blank" rel="noopener" class="btn btn-primary saya-dl-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Завантажити
+            </a>
+          </article>
 
-        <article class="saya-dl-option saya-dl-option--dlc">
-          <div class="saya-dl-option-icon saya-dl-option-icon--zip" aria-label="ZIP архів DLC" title="ZIP архів DLC">
-            <svg width="28" height="28" viewBox="0 0 512 512" aria-hidden="true">
-              <path d="M378.409,0H208.294h-13.176l-9.314,9.314L57.016,138.102l-9.314,9.314v13.176v265.514c0,47.36,38.528,85.895,85.895,85.895h244.811c47.36,0,85.889-38.535,85.889-85.895V85.896C464.298,38.528,425.769,0,378.409,0z M432.493,426.105c0,29.877-24.214,54.091-54.084,54.091H133.598c-29.877,0-54.091-24.214-54.091-54.091V160.591h83.717c24.885,0,45.07-20.178,45.07-45.07V31.804h170.115c29.87,0,54.084,24.214,54.084,54.092V426.105z" fill="#ffffff"/>
-              <text x="257" y="355" text-anchor="middle" font-size="164" font-weight="700" font-family="Arial, Helvetica, sans-serif" fill="#ffffff" letter-spacing="1">ZIP</text>
-            </svg>
-          </div>
-          <div class="saya-dl-option-body">
-            <strong class="saya-dl-name">Архів (18+ DLC)</strong>
-            <span class="saya-dl-desc">Окремий ZIP-архів локалізації для версії гри, де вже встановлено 18+ DLC.</span>
-            <ol class="saya-dl-steps">
-              <li>Завантаж ZIP-архів з локалізацією.</li>
-              <li>Розпакуй архів у кореневу папку гри:<br> .\Steam\steamapps\common\The Song of Saya.</li>
-            </ol>
-            <p class="saya-dl-danger">Увага: Призначено лише для гри зі вже встановленим 18+ DLC.</p>
-            <span class="saya-dl-danger">Рекомендовано зробити резервну копію Saya_Steam.exe перед встановленням.</span>
-          </div>
-          <a href="../mods/The%20Song%20of%20Saya/zero-test-archive-dlc.zip" id="sayaDlcDownloadBtn" class="btn btn-ghost saya-dl-btn" download>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Завантажити .ZIP (18+ DLC)
-          </a>
-        </article>
+          <article class="saya-dl-option saya-dl-option--zip">
+            <div class="saya-dl-option-icon saya-dl-option-icon--zip" aria-label="ZIP архів" title="ZIP архів">
+              <svg width="28" height="28" viewBox="0 0 512 512" aria-hidden="true">
+                <path d="M378.409,0H208.294h-13.176l-9.314,9.314L57.016,138.102l-9.314,9.314v13.176v265.514c0,47.36,38.528,85.895,85.895,85.895h244.811c47.36,0,85.889-38.535,85.889-85.895V85.896C464.298,38.528,425.769,0,378.409,0z M432.493,426.105c0,29.877-24.214,54.091-54.084,54.091H133.598c-29.877,0-54.091-24.214-54.091-54.091V160.591h83.717c24.885,0,45.07-20.178,45.07-45.07V31.804h170.115c29.87,0,54.084,24.214,54.084,54.092V426.105z" fill="#ffffff"/>
+                <text x="257" y="355" text-anchor="middle" font-size="164" font-weight="700" font-family="Arial, Helvetica, sans-serif" fill="#ffffff" letter-spacing="1">ZIP</text>
+              </svg>
+            </div>
+            <div class="saya-dl-option-body">
+              <strong class="saya-dl-name">Архів (без DLC)</strong>
+              <span class="saya-dl-desc">ZIP-архів локалізації для тих, хто хоче встановити файли вручну.</span>
+              <ol class="saya-dl-steps">
+                <li>Завантажте ZIP-архів з локалізацією.</li>
+                <li>Розпакуйте архів у кореневу папку гри:<br> .\Steam\steamapps\common\The Song of Saya.</li>
+              </ol>
+              <span class="saya-dl-danger">Рекомендовано зробити резервну копію Saya_Steam.exe перед встановленням.</span>
+            </div>
+            <a href="https://github.com/DivanDoge/locus-team/releases/download/saya-v1.2.6/SayaNoUta-UKR-v1.2.6.zip" class="btn btn-ghost saya-dl-btn" download>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Завантажити .ZIP
+            </a>
+          </article>
 
+          <article class="saya-dl-option saya-dl-option--dlc">
+            <div class="saya-dl-option-icon saya-dl-option-icon--zip" aria-label="ZIP архів DLC" title="ZIP архів DLC">
+              <svg width="28" height="28" viewBox="0 0 512 512" aria-hidden="true">
+                <path d="M378.409,0H208.294h-13.176l-9.314,9.314L57.016,138.102l-9.314,9.314v13.176v265.514c0,47.36,38.528,85.895,85.895,85.895h244.811c47.36,0,85.889-38.535,85.889-85.895V85.896C464.298,38.528,425.769,0,378.409,0z M432.493,426.105c0,29.877-24.214,54.091-54.084,54.091H133.598c-29.877,0-54.091-24.214-54.091-54.091V160.591h83.717c24.885,0,45.07-20.178,45.07-45.07V31.804h170.115c29.87,0,54.084,24.214,54.084,54.092V426.105z" fill="#ffffff"/>
+                <text x="257" y="355" text-anchor="middle" font-size="164" font-weight="700" font-family="Arial, Helvetica, sans-serif" fill="#ffffff" letter-spacing="1">ZIP</text>
+              </svg>
+            </div>
+            <div class="saya-dl-option-body">
+              <strong class="saya-dl-name">Архів (18+ DLC)</strong>
+              <span class="saya-dl-desc">Окремий ZIP-архів локалізації для версії гри, де вже встановлено 18+ DLC.</span>
+              <ol class="saya-dl-steps">
+                <li>Завантажте ZIP-архів з локалізацією.</li>
+                <li>Розпакуйте архів у кореневу папку гри:<br> .\Steam\steamapps\common\The Song of Saya.</li>
+              </ol>
+              <p class="saya-dl-danger">Увага: Призначено лише для гри зі вже встановленим 18+ DLC.</p>
+              <span class="saya-dl-danger">Рекомендовано зробити резервну копію Saya_Steam.exe перед встановленням.</span>
+            </div>
+            <a href="https://github.com/DivanDoge/locus-team/releases/download/saya-v1.2.6/SayaNoUta-UKR-DLC-v1.2.6.zip" id="sayaDlcDownloadBtn" class="btn btn-ghost saya-dl-btn" download>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Завантажити .ZIP (18+ DLC)
+            </a>
+          </article>
+
+        </div>
       </div>
     </section>
 
     <div id="sayaAgeModal" class="saya-age-modal" role="dialog" aria-modal="true" aria-labelledby="sayaAgeModalTitle" aria-describedby="sayaAgeModalText" hidden>
       <div class="saya-age-modal-card">
         <h3 id="sayaAgeModalTitle">Підтвердження 18+</h3>
-        <p id="sayaAgeModalText">Архів DLC 18+ можна встановлювати тільки на версію гри, де вже є встановлений 18+ DLC. Якщо встановити його на гру без DLC, гра може зламатися.</p>
-        <p class="saya-age-modal-disclaimer">Вміст гри може бути відвертим, шокуючим, неприємним і психологічно важким. Продовжуючи, ти підтверджуєш, що тобі є 18+ років.</p>
+        <p id="sayaAgeModalText">Архів DLC 18+ можна встановлювати тільки на версію гри, де вже є встановлений 18+ DLC. Якщо встановити його на гру без DLC, гра зламається.</p>
+        <p class="saya-age-modal-disclaimer">Вміст гри може бути відвертим, шокуючим, неприємним і психологічно важким. Продовжуючи, ви підтверджуєте, що вам є 18+ років.</p>
         <div class="saya-age-modal-actions">
           <button type="button" class="btn btn-primary" id="sayaAgeConfirmBtn">Підтверджую, мені 18+</button>
           <button type="button" class="btn btn-ghost" id="sayaAgeCancelBtn">Скасувати</button>
@@ -306,37 +344,30 @@ redirect_from:
       <div class="saya-faq">
 
         <details class="saya-faq-item">
-          <summary class="saya-faq-q">Де купити оригінальну гру?</summary>
+          <summary class="saya-faq-q">Де придбати оригінальну гру?</summary>
           <div class="saya-faq-a">
             <p>The Song of Saya доступна в Steam (<a href="https://store.steampowered.com/app/702050/The_Song_of_Saya/" target="_blank" rel="noopener">store.steampowered.com</a>) та на сайті JAST USA. Steam-версія є найзручнішим варіантом для більшості.</p>
           </div>
         </details>
 
         <details class="saya-faq-item">
-          <summary class="saya-faq-q">Коли вийде перший повноцінний реліз?</summary>
+          <summary class="saya-faq-q">Де придбати DLC до гри?</summary>
           <div class="saya-faq-a">
-            <p>Команда наразі активно перекладає. Точної дати немає — слідкуйте за <a href="https://t.me/the_song_of_saya_ukr" target="_blank" rel="noopener">Telegram-каналом</a>. Там першими з'являться всі анонси.</p>
-          </div>
-        </details>
-
-        <details class="saya-faq-item">
-          <summary class="saya-faq-q">Як встановити патч?</summary>
-          <div class="saya-faq-a">
-            <p>Разом із патчем буде опублікована детальна інструкція встановлення. Вона підійде навіть тим, хто раніше ніколи не встановлював моди до візуальних новел.</p>
+            <p>DLC можна придбати на сайті <a href="https://jaststore.com/games/np004_dlc/saya-no-uta-the-song-of-saya-dlc-steam" target="_blank" rel="noopener">JAST USA</a>. Зверніть увагу, що локалізацію для гри з DLC можна встановлювати тільки на версію гри, де вже є встановлений DLC патч. Якщо встановити її на гру без DLC, гра зламається.</p>
           </div>
         </details>
 
         <details class="saya-faq-item">
           <summary class="saya-faq-q">Патч є безкоштовним?</summary>
           <div class="saya-faq-a">
-            <p>Так. Патч локалізації повністю безкоштовний. Ми не продаємо переклад — якщо хочеш підтримати команду, можеш задонатити за бажанням.</p>
+            <p>Так. Патч локалізації повністю безкоштовний. Ми не продаємо переклад — якщо бажаєте підтримати команду, можете зробити <a href="https://send.monobank.ua/jar/6t5ags4KpB" target="_blank" rel="noopener">донат</a>.</p>
           </div>
         </details>
 
         <details class="saya-faq-item">
           <summary class="saya-faq-q">Чи зачіпає патч тільки текст?</summary>
           <div class="saya-faq-a">
-            <p>Основу складає текстовий переклад. Окремі текстури з вбудованим текстом також будуть замінені, де це доцільно.</p>
+            <p>Основу складає текстовий переклад. Текстури з вбудованим текстом також замінені, де це доцільно.</p>
           </div>
         </details>
 

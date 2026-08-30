@@ -274,6 +274,117 @@ if (heroCanvas) {
   });
 }());
 
+/* ── Release countdown gate ───────────────────────────────── */
+(function () {
+  var gate = document.getElementById('sayaReleaseGate');
+  var content = document.getElementById('sayaDownloadContent');
+  if (!gate || !content) return;
+
+  // =========================================================================
+  // ⚙️ НАЛАШТУВАННЯ ЧАСУ РЕЛІЗУ ТА ТЕСТУВАННЯ
+  //
+  // Змінна `RELEASE_DATE` вказує дату та час релізу:
+  //   1 вересня 2026 00:00:00 (за київським часом UTC+3 / EEST).
+  //
+  // 🧪 ТЕСТУВАННЯ ЗАКІНЧЕННЯ ТАЙМЕРА:
+  //   Щоб перевірити, як з'являються посилання після завершення відліку:
+  //   1) Замініть значення RELEASE_DATE нижче на минулу дату, наприклад:
+  //      var RELEASE_DATE = new Date('2020-01-01T00:00:00');
+  //   2) Або поставте тест на +10 секунд від поточного часу:
+  //      var RELEASE_DATE = new Date(Date.now() + 10000);
+  // =========================================================================
+  var RELEASE_DATE = new Date('2026-09-01T00:00:00+03:00');
+
+  var timeOffset = 0; // Різниця між точним інтернет-часом і системним годинником клієнта
+
+  var daysEl = document.getElementById('sayaReleaseDays');
+  var hoursEl = document.getElementById('sayaReleaseHours');
+  var minutesEl = document.getElementById('sayaReleaseMinutes');
+  var secondsEl = document.getElementById('sayaReleaseSeconds');
+
+  function getNow() {
+    return new Date(Date.now() + timeOffset);
+  }
+
+  var isUnlocked = false;
+
+  function unlockContent() {
+    if (isUnlocked) return;
+    isUnlocked = true;
+
+    gate.classList.add('fade-out');
+
+    setTimeout(function () {
+      gate.hidden = true;
+      gate.style.display = 'none';
+
+      content.classList.add('fade-in-init');
+      content.hidden = false;
+      content.style.display = '';
+
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          content.classList.remove('fade-in-init');
+        });
+      });
+    }, 500);
+  }
+
+  function updateCountdown() {
+    var now = getNow();
+    var diff = RELEASE_DATE.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      unlockContent();
+      return;
+    }
+
+    var totalSeconds = Math.floor(diff / 1000);
+    var days = Math.floor(totalSeconds / (60 * 60 * 24));
+    var hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+    var minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+    var seconds = totalSeconds % 60;
+
+    if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+    if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+    if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+    if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+
+    if (!isUnlocked) {
+      gate.hidden = false;
+      gate.style.display = 'flex';
+      content.hidden = true;
+      content.style.display = 'none';
+    }
+  }
+
+  // Отримання точного часу з мережі через HTTP-заголовок `Date` сервера або GitHub API
+  function syncInternetTime() {
+    var fetchUrl = (window.location.origin && window.location.origin !== 'null' && window.location.origin.indexOf('http') === 0)
+      ? window.location.href
+      : 'https://api.github.com';
+
+    fetch(fetchUrl, { method: 'HEAD', cache: 'no-store' })
+      .then(function (res) {
+        var serverDateHeader = res.headers.get('date');
+        if (serverDateHeader) {
+          var serverTime = new Date(serverDateHeader).getTime();
+          if (!isNaN(serverTime)) {
+            timeOffset = serverTime - Date.now();
+            updateCountdown();
+          }
+        }
+      })
+      .catch(function () {
+        // У разі відсутності зв'язку використовується системний час клієнта
+      });
+  }
+
+  updateCountdown();
+  syncInternetTime();
+  setInterval(updateCountdown, 1000);
+}());
+
 /* ── Download counter ─────────────────────────────────────── */
 (function () {
   var OWNER = 'DivanDoge';
