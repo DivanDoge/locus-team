@@ -378,8 +378,17 @@ if (heroCanvas) {
   var REPO  = 'locus-team';
 
   var countEl = document.getElementById('sayaDlNum');
+  var wordEl  = document.getElementById('sayaDlWord');
   var wrapEl  = document.getElementById('sayaDlCount');
   if (!countEl || !wrapEl) return;
+
+  function pluralizeTimes(n) {
+    var mod10 = n % 10;
+    var mod100 = n % 100;
+    if (mod10 === 1 && mod100 !== 11) return 'раз';
+    if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return 'рази';
+    return 'разів';
+  }
 
   fetch('https://api.github.com/repos/' + OWNER + '/' + REPO + '/releases')
     .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
@@ -388,6 +397,7 @@ if (heroCanvas) {
         .flatMap(function (r) { return r.assets; })
         .reduce(function (sum, a) { return sum + a.download_count; }, 0);
       countEl.textContent = total.toLocaleString('uk-UA');
+      if (wordEl) wordEl.textContent = pluralizeTimes(total);
       wrapEl.hidden = false;
     })
     .catch(function () { /* мовчки ігноруємо помилки мережі */ });
