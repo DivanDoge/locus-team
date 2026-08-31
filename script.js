@@ -375,7 +375,7 @@ if (heroCanvas) {
 /* ── Download counter ─────────────────────────────────────── */
 (function () {
   var OWNER = 'DivanDoge';
-  var REPO  = 'REPO_NAME'; // замініть на реальну назву репозиторію
+  var REPO  = 'locus-team';
 
   var countEl = document.getElementById('sayaDlNum');
   var wrapEl  = document.getElementById('sayaDlCount');
